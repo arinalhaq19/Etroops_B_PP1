@@ -1,8 +1,7 @@
-
 public class Pelanggan {
   private int idPelanggan;
     private String nama;
-    private String nomorTelepon;  // ubah jadi String agar validasi digit lebih mudah
+    private String nomorTelepon;  
     private String alamat;
 
     // Konstruktor
