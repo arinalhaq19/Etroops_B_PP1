@@ -28,4 +28,17 @@ public class DaftarPelanggan {
       current.next = newNode;
     }
   }
+
+  // tampilPelanggan
+  public void tampilkanPelanggan() {
+    Node temp = head;
+    if (temp == null) {
+      System.out.println(x:"Daftar Pelanggan Kosong");
+      return;
+    }
+    while (temp != null) {
+      System.out.println(temp.data);
+      temp = temp.next;
+    }
+  }
 }
