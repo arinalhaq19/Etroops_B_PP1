@@ -1,3 +1,4 @@
+package entity;
 public class Pelanggan {
   private int idPelanggan;
     private String nama;
