@@ -5,45 +5,52 @@ import org.w3c.dom.Node;
 import entity.Pelanggan;
 
 public class StrukturPelanggan {
-  private Pelanggan head;
-  private class Node {
-    Pelanggan data;
-    Node next;
+    private Pelanggan head;
 
-    Node(Pelanggan data) {
-      this.data = data;
-      this.next = null;
+    private boolean isEmpty() {
+      return head == null;
     }
-  }
 
-  private Node head;
+    // Tambah di awal (GOLD)
+    public void addHead(Pelanggan data) {
+      data.setNext(head);
+      head = data;
+    }
 
-  // tambahPelanggan
-  public void tambahPelanggan(Pelanggan pelanggan) {
-    Node newNode = new Node(pelanggan);
-    if (head == null) {
-      head = newNode;
-    } else {
-      Node current = head;
-      while (current.next != null) {
-        current = current.next;
+    // Tambah di akhir (BRONZE)
+    public void addTail(Pelanggan data) {
+      if (isEmpty()) {
+          head = data;
+      } else {
+          Pelanggan temp = head;
+          while (temp.getNext() != null) {
+              temp = temp.getNext();
+          }
+          temp.setNext(data);
       }
-      current.next = newNode;
-    }
-  }
+   }
 
-  // tampilPelanggan
-  public void tampilkanPelanggan() {
-    Node temp = head;
-    if (temp == null) {
-      System.out.println(x:"Daftar Pelanggan Kosong");
-      return;
+    // Tambah di tengah (SILVER)
+    public void addMid(Pelanggan data, int posisi) {
+      if (isEmpty() || posisi <= 1) {
+          addHead(data);
+          return;
+      }
+
+      Pelanggan temp = head;
+      for (int i = 1; temp != null && i < posisi - 1; i++) {
+          temp = temp.getNext();
+      }
+
+      if (temp == null || temp.getNext() == null) {
+          addTail(data);
+      } else {
+          data.setNext(temp.getNext());
+          temp.setNext(data);
+      }
     }
-    while (temp != null) {
-      System.out.println(temp.data);
-      temp = temp.next;
-    }
-  }
+
+  
 
 // Hapus Pelanggan GOLD (dari head)
     public void removeHead(int id) {
