@@ -30,25 +30,32 @@ public class StrukturPelanggan {
       }
    }
 
-    // Tambah di tengah (SILVER)
-    public void addMid(Pelanggan data, int posisi) {
-      if (isEmpty() || posisi <= 1) {
-          addHead(data);
-          return;
-      }
-
-      Pelanggan temp = head;
-      for (int i = 1; temp != null && i < posisi - 1; i++) {
-          temp = temp.getNext();
-      }
-
-      if (temp == null || temp.getNext() == null) {
-          addTail(data);
-      } else {
-          data.setNext(temp.getNext());
-          temp.setNext(data);
-      }
+     // Tambah di tengah (SILVER)
+   // Tambah di antara GOLD dan BRONZE (khusus SILVER)
+    public void addMid(Pelanggan data) {
+         if (isEmpty()) {
+              head = data;
+         return;
     }
+
+    Pelanggan temp = head;
+    Pelanggan prev = null;
+
+    // Cari GOLD terakhir
+    while (temp != null && temp.getlevelMember().equalsIgnoreCase("GOLD")) {
+        prev = temp;
+        temp = temp.getNext();
+    }
+
+    // Jika tidak ada GOLD, sisipkan di head
+    if (prev == null) {
+        data.setNext(head);
+        head = data;
+    } else {
+        data.setNext(prev.getNext());
+        prev.setNext(data);
+    }
+}
 
   
 
