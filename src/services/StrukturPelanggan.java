@@ -9,6 +9,18 @@ public class StrukturPelanggan {
       return head == null;
     }
 
+    // Tambah pelanggan berdasarkan level member
+    public void tambahPelanggan(Pelanggan data) {
+        String level = data.getlevelMember().toUpperCase();
+
+        switch (level) {
+            case "GOLD" -> addHead(data);     // Prioritas tinggi
+            case "SILVER" -> addMid(data); // Menengah
+            case "BRONZE" -> addTail(data);   // Prioritas rendah
+            default -> System.out.println("Level member tidak dikenali!");
+        }
+    }
+
     // Tambah di awal (GOLD)
     public void addHead(Pelanggan data) {
       data.setNext(head);
