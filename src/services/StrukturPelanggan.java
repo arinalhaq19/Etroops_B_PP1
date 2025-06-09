@@ -227,6 +227,18 @@ return;
     System.out.println(temp);
     temp = temp.getNext();
     }
-
 }
+
+ // Cek apakah ID pelanggan sudah ada
+    public boolean cekDuplikatID(int id) {
+        Pelanggan temp = head;
+        while (temp != null) {
+            if (temp.getIdPelanggan() == id) {
+                return true;
+            }
+            temp = temp.getNext();
+        }
+        return false;
+    }
+    
 }

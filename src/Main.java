@@ -1,9 +1,8 @@
-package Main;
 import java.time.LocalDate;
-
 import java.util.Scanner;
 import entity.Pelanggan;
 import services.StrukturPelanggan;
+import util.Validasi;
 public class Main {
     public static void main(String[] args) {
         StrukturPelanggan daftar = new StrukturPelanggan();
