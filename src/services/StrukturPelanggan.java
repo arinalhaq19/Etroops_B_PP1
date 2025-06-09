@@ -1,7 +1,5 @@
 package services;
 
-import org.w3c.dom.Node;
-
 import entity.Pelanggan;
 
 public class StrukturPelanggan {
@@ -142,5 +140,53 @@ public class StrukturPelanggan {
 
         System.out.println(" Pelanggan SILVER dengan ID " + id + " tidak ditemukan.");
     }
-  
+
+    //cari pelanggan berdasarkan ID
+    public Pelanggan cariPelanggan(int id) {
+        Pelanggan temp = head;
+        while (temp != null) {
+            if (temp.getIdPelanggan() == id) {
+                return temp;
+            }
+            temp = temp.getNext();
+        }
+        return null; // Jika tidak ditemukan
+    }
+
+    // Edit data pelanggan berdasarkan ID
+    public void editPelanggan(int id, String nama, String alamat, String noTelepon, String levelMemberBaru) {
+        Pelanggan temp = head;
+        Pelanggan prev = null;
+
+        while (temp != null) {
+            if (temp.getIdPelanggan() == id) {
+                // Simpan data lama
+                String namaBaru = (nama != null) ? nama : temp.getNama();
+                String alamatBaru = (alamat != null) ? alamat : temp.getAlamat();
+                String teleponBaru = (noTelepon != null) ? noTelepon : temp.getNoTelepon();
+                String levelLama = temp.getlevelMember();
+                String levelBaru = (levelMemberBaru != null) ? levelMemberBaru : levelLama;
+
+                // Hapus node lama dari list
+                if (prev == null) {
+                    head = temp.getNext();
+                } else {
+                    prev.setNext(temp.getNext());
+                }
+
+                // Buat node baru
+                Pelanggan baru = new Pelanggan(id, namaBaru, alamatBaru, teleponBaru, temp.getTanggalBergabung(), levelBaru);
+
+                // Tambahkan ulang sesuai level baru
+                tambahPelanggan(baru);
+
+                System.out.println(" Data pelanggan dengan ID " + id + " telah diperbarui dan dipindahkan sesuai level.");
+                return;
+            }
+            prev = temp;
+            temp = temp.getNext();
+        }
+
+     System.out.println(" Pelanggan dengan ID " + id + " tidak ditemukan.");
+   }
 }
