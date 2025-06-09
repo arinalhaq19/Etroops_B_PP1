@@ -187,18 +187,46 @@ public class StrukturPelanggan {
                 }
 
                 // Buat node baru
-                Pelanggan baru = new Pelanggan(id, namaBaru, alamatBaru, teleponBaru, temp.getTanggalBergabung(), levelBaru);
+                Pelanggan baru = new Pelanggan(id, namaBaru, alamatBaru, teleponBaru, temp.getTanggalBergabung(),
+                        levelBaru);
 
                 // Tambahkan ulang sesuai level baru
                 tambahPelanggan(baru);
 
-                System.out.println(" Data pelanggan dengan ID " + id + " telah diperbarui dan dipindahkan sesuai level.");
+                System.out
+                        .println(" Data pelanggan dengan ID " + id + " telah diperbarui dan dipindahkan sesuai level.");
                 return;
             }
             prev = temp;
             temp = temp.getNext();
         }
 
-     System.out.println(" Pelanggan dengan ID " + id + " tidak ditemukan.");
-   }
+        System.out.println(" Pelanggan dengan ID " + id + " tidak ditemukan.");
+    }
+
+   
+    // Tampilkan semua pelanggan dan total jumlahnya
+    public void tampilkanPelanggan() {
+if (isEmpty()) {
+System.out.println("Daftar pelanggan kosong.");
+return;
+}
+
+    Pelanggan tempHitung = head;
+    int total = 0;
+    while (tempHitung != null) {
+    total++;
+    tempHitung = tempHitung.getNext();
+    }
+
+    System.out.println("\n=== Daftar Pelanggan ===");
+    System.out.println("Total pelanggan: " + total + "\n");
+
+    Pelanggan temp = head;
+    while (temp != null) {
+    System.out.println(temp);
+    temp = temp.getNext();
+    }
+
+}
 }
