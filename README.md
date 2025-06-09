@@ -6,16 +6,15 @@ Program yang dirancang yang bertujuan untuk menajemen daftar pelanggan skala kec
 
 # Fitur Program
 * Tambah : Bisa menambah data pelanggan.
-* Tampil : Menampilkan seluruh daftar pelanggan
+* Tampil : Menampilkan seluruh daftar pelanggan beserta total pelanggan
 * Cari : Bisa mencari data pelanggan berdasarkan id.
 * Edit : Bisa mengubah data pelanggan.
 * Hapus : Bisa menghapus data pelanggan.
-* Hitung : Bisa menghitung jumlah semua pelanggan.
 
 # Etroops Tim
 * 233040149 - Arinal Haq
-* 233040068 - Aditya Eka Heriyawan
 * 233040042 - Muhamad Rizky
+* 233040068 - Aditya Eka Heriyawan
 * 233040073 - Rafi Asmaul Rizal
 * 233040078 - Fabregas Garda Samudra
 
